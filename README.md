@@ -1,6 +1,6 @@
-# Vue_UI_Library
+# vue_ui_library
 
-> My exquisite Nuxt.js project
+> My awesome Nuxt.js project
 
 ## Build Setup
 
