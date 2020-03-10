@@ -6,8 +6,8 @@
 </template>
 <script>
 import Input from '@/components/Input.vue'
-import Test from 'stylus_style'
-console.log(Test.resources)
+// import Test from 'stylus_style'
+// console.log(Test.resources)
 
 export default {
   components: {

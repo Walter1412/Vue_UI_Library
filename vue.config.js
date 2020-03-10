@@ -1,17 +1,17 @@
 module.exports = {
   css: {
     loaderOptions: {
-      css: {
-        // prependData:''
-      },
-      stylus: {},
-      scss: {}
+      stylus: {
+        import: '~@/assets/styles/app.styl'
+      }
     }
   },
   pluginOptions: {
     'style-resources-loader': {
       preProcessor: 'stylus',
-      patterns: []
+      patterns: [
+        '~@/assets/styles/_base.styl'
+      ]
     }
   }
 }
