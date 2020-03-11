@@ -5,13 +5,10 @@
   </div>
 </template>
 <script>
-import Input from '@/components/Input.vue'
-// import Test from 'stylus_style'
-// console.log(Test.resources)
+import Index from '@/components/'
+console.log(Index)
 
 export default {
-  components: {
-    Input
-  }
+  components: {}
 }
 </script>
