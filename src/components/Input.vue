@@ -9,8 +9,7 @@
     padding 0 16px
     font-size rem(14px)
 
-    &:focus,
-    &:active
+    &:focus, &:active
       outline none
       border-color var(--primary-color)
 
@@ -21,7 +20,7 @@
     .input__text
       border none
       pointer-events none
-      background-color rgba(0, 0, 0, 0.05)
+      background-color rgba(0, 0, 0, .05)
       color #bfbfbf
 
     .input__icon
@@ -77,85 +76,113 @@
     span.input__error-message {{errorMessage}}
 </template>
 
-<script>
-export default {
-  components: {},
+<script lang="ts">
+import Vue, { PropOptions } from 'vue'
+
+interface User {
+  firstName: string;
+  lastName: number;
+}
+
+export default Vue.extend({
+  name: 'YourComponent',
   props: {
-    value: {
-      type: [String, Number, Object, Array],
-      default: ''
-    },
-    isError: {
-      type: Boolean,
-      default: () => {
-        return false
-      }
-    },
-    type: {
-      type: String,
-      default: () => {
-        return 'text'
-      }
-    },
-    readonly: {
-      type: Boolean,
-      default: () => {
-        return false
-      }
-    },
-    isDisabled: {
-      type: Boolean,
-      default: () => {
-        return false
-      }
-    },
-    placeholder: {
-      type: String,
-      default: () => {
-        return ''
-      }
-    },
-    maxLength: {
-      type: Number,
-      default: () => {
-        return 100
-      }
-    },
-    isOnlyNumber: {
-      type: Boolean,
-      default: false
-    },
-    hasPoint: {
-      type: Boolean,
-      default: true
-    },
-    errorMessage: {
-      type: String,
-      default: ''
+    user: {
+      type: Object,
+      required: true
+    } as PropOptions<User>
+  },
+
+  data () {
+    return {
+      message: 'This is a message'
     }
   },
-  data () {
-    return {}
-  },
-  computed: {},
-  watch: {},
-  created () {},
-  mounted () {},
-  methods: {
-    keyPressEvent ($event) {
-      const keyCode = $event.keyCode ? $event.keyCode : $event.which
-      if (this.isOnlyNumber) {
-        // if ((keyCode < 48 || keyCode > 57) && keyCode !== 46) {
-        if ((keyCode < 48 || keyCode > 57) && keyCode !== 46) {
-          $event.preventDefault()
-        }
-      }
-      if (!this.hasPoint) {
-        if (keyCode === 46) {
-          $event.preventDefault()
-        }
-      }
+
+  computed: {
+    fullName (): string {
+      return `${this.user.firstName} ${this.user.lastName}`
     }
   }
-}
+})
+// export default {
+//   components: {},
+//   props: {
+//     value: {
+//       type: [String, Number, Object, Array],
+//       default: ''
+//     },
+//     isError: {
+//       type: Boolean,
+//       default: () => {
+//         return false
+//       }
+//     },
+//     type: {
+//       type: String,
+//       default: () => {
+//         return 'text'
+//       }
+//     },
+//     readonly: {
+//       type: Boolean,
+//       default: () => {
+//         return false
+//       }
+//     },
+//     isDisabled: {
+//       type: Boolean,
+//       default: () => {
+//         return false
+//       }
+//     },
+//     placeholder: {
+//       type: String,
+//       default: () => {
+//         return ''
+//       }
+//     },
+//     maxLength: {
+//       type: Number,
+//       default: () => {
+//         return 100
+//       }
+//     },
+//     isOnlyNumber: {
+//       type: Boolean,
+//       default: false
+//     },
+//     hasPoint: {
+//       type: Boolean,
+//       default: true
+//     },
+//     errorMessage: {
+//       type: String,
+//       default: ''
+//     }
+//   },
+//   data () {
+//     return {}
+//   },
+//   computed: {},
+//   watch: {},
+//   created () {},
+//   mounted () {},
+//   methods: {
+//     keyPressEvent ($event) {
+//       const keyCode = $event.keyCode ? $event.keyCode : $event.which
+//       if (this.isOnlyNumber) {
+//         // if ((keyCode < 48 || keyCode > 57) && keyCode !== 46) {
+//         if ((keyCode < 48 || keyCode > 57) && keyCode !== 46) {
+//           $event.preventDefault()
+//         }
+//       }
+//       if (!this.hasPoint) {
+//         if (keyCode === 46) {
+//           $event.preventDefault()
+//         }
+//       }
+//     }
+//   }
+// }
 </script>

@@ -1,2 +1,2 @@
 import Input from './Input'
-console.log('Input :', Input)
+export default { Input }
