@@ -9,9 +9,7 @@ module.exports = {
   pluginOptions: {
     'style-resources-loader': {
       preProcessor: 'stylus',
-      patterns: [
-        '~@/assets/styles/_base.styl'
-      ]
+      patterns: ['~@/assets/styles/_base.styl']
     }
   }
 }

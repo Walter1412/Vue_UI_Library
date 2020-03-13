@@ -80,8 +80,8 @@
 import Vue, { PropOptions } from 'vue'
 
 interface User {
-  firstName: string;
-  lastName: number;
+  firstName: string
+  lastName: number
 }
 
 export default Vue.extend({
@@ -93,14 +93,14 @@ export default Vue.extend({
     } as PropOptions<User>
   },
 
-  data () {
+  data() {
     return {
       message: 'This is a message'
     }
   },
 
   computed: {
-    fullName (): string {
+    fullName(): string {
       return `${this.user.firstName} ${this.user.lastName}`
     }
   }
