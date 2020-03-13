@@ -7,14 +7,15 @@
     width 100%
     border-radius 4px
     padding 0 16px
+    border 1px solid var(--secondary)
     font-size rem(14px)
 
     &:focus, &:active
       outline none
-      border-color var(--primary-color)
+      border-color var(--primary)
 
     &:hover
-      border-color var(--primary-color)
+      border-color var(--primary)
 
   &[data-is-disabled=true]
     .input__text
@@ -44,14 +45,6 @@
     right 0
     top 0
 
-  &__error-message
-    color var(--error-color)
-    font-size 12px
-    position absolute
-    left 10px
-    bottom -20px
-    z-index 1
-
   &[data-is-error=true]
     .input__text
       border-color var(--error-color)
@@ -59,130 +52,43 @@
 <template lang="pug">
 .input(:data-is-disabled="isDisabled" :data-is-error="isError")
   input.input__text(
-              :type="type"
               :value="value"
               @input="$emit('input', $event.target.value)"
-              :readonly="readonly"
-              :placeholder="placeholder"
-              :maxlength = "maxLength"
-              @keypress="keyPressEvent"
-              @blur="$emit('Input:blur')"
+              @blur="$emit('blur')"
+              v-bind="$attrs"
+              v-on="$listeners"
               )
   .input__prefix
     slot(name="prefix")
   .input__suffix
     slot(name="suffix")
-  template(v-if="isError")
-    span.input__error-message {{errorMessage}}
 </template>
 
 <script lang="ts">
-import Vue, { PropOptions } from 'vue'
-
-interface User {
-  firstName: string
-  lastName: number
-}
-
+import Vue from 'vue'
 export default Vue.extend({
-  name: 'YourComponent',
+  name: 'Input',
+  inheritAttrs: false,
   props: {
-    user: {
-      type: Object,
-      required: true
-    } as PropOptions<User>
-  },
-
-  data() {
-    return {
-      message: 'This is a message'
+    value: {
+      type: [String, Number, Array, Object],
+      default: ''
+    },
+    isError: {
+      type: Boolean,
+      default: () => {
+        return false
+      }
+    },
+    isDisabled: {
+      type: Boolean,
+      default: () => {
+        return false
+      }
     }
   },
-
-  computed: {
-    fullName(): string {
-      return `${this.user.firstName} ${this.user.lastName}`
-    }
+  created() {
+    console.log('this :', this)
   }
 })
-// export default {
-//   components: {},
-//   props: {
-//     value: {
-//       type: [String, Number, Object, Array],
-//       default: ''
-//     },
-//     isError: {
-//       type: Boolean,
-//       default: () => {
-//         return false
-//       }
-//     },
-//     type: {
-//       type: String,
-//       default: () => {
-//         return 'text'
-//       }
-//     },
-//     readonly: {
-//       type: Boolean,
-//       default: () => {
-//         return false
-//       }
-//     },
-//     isDisabled: {
-//       type: Boolean,
-//       default: () => {
-//         return false
-//       }
-//     },
-//     placeholder: {
-//       type: String,
-//       default: () => {
-//         return ''
-//       }
-//     },
-//     maxLength: {
-//       type: Number,
-//       default: () => {
-//         return 100
-//       }
-//     },
-//     isOnlyNumber: {
-//       type: Boolean,
-//       default: false
-//     },
-//     hasPoint: {
-//       type: Boolean,
-//       default: true
-//     },
-//     errorMessage: {
-//       type: String,
-//       default: ''
-//     }
-//   },
-//   data () {
-//     return {}
-//   },
-//   computed: {},
-//   watch: {},
-//   created () {},
-//   mounted () {},
-//   methods: {
-//     keyPressEvent ($event) {
-//       const keyCode = $event.keyCode ? $event.keyCode : $event.which
-//       if (this.isOnlyNumber) {
-//         // if ((keyCode < 48 || keyCode > 57) && keyCode !== 46) {
-//         if ((keyCode < 48 || keyCode > 57) && keyCode !== 46) {
-//           $event.preventDefault()
-//         }
-//       }
-//       if (!this.hasPoint) {
-//         if (keyCode === 46) {
-//           $event.preventDefault()
-//         }
-//       }
-//     }
-//   }
-// }
 </script>
