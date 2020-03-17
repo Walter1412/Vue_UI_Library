@@ -66,11 +66,6 @@
 
 <script lang="ts">
 import Vue from 'vue'
-
-// interface Props {
-
-// }
-
 export default Vue.extend({
   name: 'Input',
   inheritAttrs: false,
@@ -86,11 +81,6 @@ export default Vue.extend({
     isDisabled: {
       type: Boolean,
       default: false
-    }
-  },
-  methods: {
-    test() {
-      this.$emit('123')
     }
   }
 })

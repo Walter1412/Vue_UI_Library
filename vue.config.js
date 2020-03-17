@@ -10,6 +10,9 @@ module.exports = {
     'style-resources-loader': {
       preProcessor: 'stylus',
       patterns: ['~@/assets/styles/_base.styl']
+    },
+    storybook: {
+      allowedPlugins: ['define']
     }
   }
 }
