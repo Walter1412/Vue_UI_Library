@@ -7,9 +7,15 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "bundle": "sh ./shells/bundle.sh",
+    "deploy": "sh ./shells/deploy.sh",
     "storybook:build": "vue-cli-service storybook:build -c config/storybook",
     "storybook:serve": "vue-cli-service storybook:serve -p 6006 -c config/storybook"
   },
+  "main": "bundle/components/index.js",
+  "files": [
+    "bundle/components/**/*.{js,vue}",
+    "bundle/styles/**/*.styl"
+  ],
   "dependencies": {
     "core-js": "^3.6.4",
     "register-service-worker": "^1.7.0",

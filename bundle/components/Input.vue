@@ -66,6 +66,11 @@
 
 <script lang="ts">
 import Vue from 'vue'
+
+// interface Props {
+
+// }
+
 export default Vue.extend({
   name: 'Input',
   inheritAttrs: false,

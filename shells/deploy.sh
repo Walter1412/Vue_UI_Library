@@ -4,10 +4,10 @@
 set -e
 
 # build
-npm run build
+npm run storybook:build
 
 # navigate into the build output directory
-cd dist
+cd storybook-static
 
 # if you are deploying to a custom domain
 # echo 'www.example.com' > CNAME
@@ -20,6 +20,6 @@ git commit -m 'deploy'
 # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
 
 # if you are deploying to https://<USERNAME>.github.io/<REPO>
-# git push -f git@github.com:<USERNAME>/<REPO>.git master:gh-pages
+git push -f https://github.com/Walter1214/Vue_UI_Library.git master:gh-pages
 
 cd -
