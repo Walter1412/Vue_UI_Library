@@ -87,11 +87,6 @@ export default Vue.extend({
       type: Boolean,
       default: false
     }
-  },
-  methods: {
-    test() {
-      this.$emit('123')
-    }
   }
 })
 </script>

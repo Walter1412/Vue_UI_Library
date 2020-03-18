@@ -6,6 +6,7 @@ module.exports = {
       }
     }
   },
+  publicPath: process.env.NODE_ENV === 'production' ? '/Vue_UI_Library/' : '/',
   pluginOptions: {
     'style-resources-loader': {
       preProcessor: 'stylus',
