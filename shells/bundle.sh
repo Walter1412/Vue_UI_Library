@@ -7,4 +7,4 @@ mkdir bundle
 
 cp -r src/components/ bundle/components
 
-cp -r src/assets/styles bundle/styles
+# cp -r src/assets/styles bundle/styles

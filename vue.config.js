@@ -10,7 +10,7 @@ module.exports = {
   pluginOptions: {
     'style-resources-loader': {
       preProcessor: 'stylus',
-      patterns: ['~@/assets/styles/_base.styl']
+      patterns: ['@fe_org/stylus_style/styles/_base.styl']
     },
     storybook: {
       allowedPlugins: ['define']
