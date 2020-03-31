@@ -1,4 +1,4 @@
-<style lang="stylus">
+<style lang="stylus" scoped>
 .input
   position relative
   width 100%
@@ -72,7 +72,7 @@ import Vue from 'vue'
 // }
 
 export default Vue.extend({
-  name: 'Input',
+  name: 'BasicInput',
   inheritAttrs: false,
   props: {
     value: {
