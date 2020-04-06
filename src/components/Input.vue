@@ -1,4 +1,4 @@
-<style lang="stylus" scoped>
+<style lang="stylus">
 .input
   position relative
   width 100%
