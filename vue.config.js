@@ -1,9 +1,6 @@
 module.exports = {
   css: {
     loaderOptions: {
-      css: {
-        import: '~normalize.css'
-      },
       stylus: {
         import: '~@/assets/styles/app.styl'
       }
