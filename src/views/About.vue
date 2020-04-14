@@ -1,13 +1,19 @@
-<template>
-  <div class="about">
-    <h1>This is an about page</h1>
-    <Input />
-  </div>
+<template lang="pug">
+.about
+  Input(v-model="form.name")
+  div {{form.name}}
 </template>
 <script lang="ts">
 import Vue from 'vue'
 import Input from '@/components/Input.vue'
 export default Vue.extend({
+  data() {
+    return {
+      form: {
+        name: '123131'
+      }
+    }
+  },
   components: {
     Input
   }

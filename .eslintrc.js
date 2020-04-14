@@ -19,7 +19,6 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'handle-callback-err': 'off',
     'no-template-curly-in-string': 'off',
-    camelcase: 'off',
-    'prettier/prettier': 'error'
+    camelcase: 'off'
   }
 }
